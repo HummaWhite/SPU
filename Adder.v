@@ -128,9 +128,8 @@ module Adder_16_S(F, Cout, A, B, Cin);
 	input [15:0]A;
 	input [15:0]B;
 	input Cin;
-
-	assign F = A + B + Cin;
-	assign Cout = (F < A) | (F < B);
+	
+	assign {Cin, F} = A + B + Cin;
 
 endmodule
 
@@ -146,5 +145,21 @@ module C_Adder_16(F, Cout, A, B, Sub);
 	assign TB = (Sub) ? ~B : B;
 	
 	Adder_16_S U1(F, Cout, A, TB, Sub);
+
+endmodule
+
+
+module Adder_32(F, Cout, OF, SF, ZF, CF, A, B, Cin);
+
+	output wire [31:0]F, Cout, OF, SF, ZF, CF;
+	input [31:0]A;
+	input [31:0]B;
+	input Cin;
+
+	assign {Cout, F} = A + B + Cin;
+	assign OF = (A[31] & B[31] & (!F[31])) | ((!A[31]) & (!B[31]) & F[31]);
+	assign SF = F[31];
+	assign ZF = (F == 0);
+	assign CF = Cout ^ Cin;
 
 endmodule
