@@ -1,7 +1,25 @@
 `timescale 1ns / 1ps
 `include "Adder.v"
 
-module Vr74x283_Test;
+module ALU_Controller_Test;
+
+	wire [2:0]OPctr;
+	wire SUBctr, OVctr, SIGctr;
+	reg [3:0]ALUctr;
+
+	ALU_Controller uut(OPctr, SUBctr, OVctr, SIGctr, ALUctr);
+
+	always #20 ALUctr = ALUctr + 1;
+
+	initial begin
+
+	ALUctr = 4'b0000;
+	
+	end
+
+endmodule
+
+/*module Vr74x283_Test;
 
 	// Inputs
 	reg [31:0]A;
@@ -47,4 +65,4 @@ module Vr74x283_Test;
 
 	end
       
-endmodule
+endmodule*/
