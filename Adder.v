@@ -47,9 +47,9 @@ endmodule
 
 module AC_Adder_4(F, Cout, A, B, Cin);
 
-	output wire [3:0]F, Cout;
-	input [3:0]A;
-	input [3:0]B;
+	output wire[3:0] F;
+	output wire Cout;
+	input[3:0] A, B;
 	input Cin;
 	wire C3, C2, C1;
 	wire P3, G3, P2, G2, P1, G1, P0, G0;
@@ -80,9 +80,9 @@ endmodule
 
 module S_Adder_16(F, Cout, A, B, Cin);
 
-	output wire [15:0]F, Cout;
-	input [15:0]A;
-	input [15:0]B;
+	output wire[15:0] F;
+	output wire Cout;
+	input[15:0] A, B;
 	input Cin;
 	
 	wire [14:0]C;
@@ -108,9 +108,9 @@ endmodule
 
 module Adder_16(F, Cout, A, B, Cin);
 
-	output wire [15:0]F, Cout;
-	input [15:0]A;
-	input [15:0]B;
+	output wire[15:0] F;
+	output wire Cout;
+	input[15:0] A, B;
 	input Cin;
 
 	wire [2:0]C;
@@ -124,9 +124,9 @@ endmodule
 
 module Adder_16_S(F, Cout, A, B, Cin);
 
-	output wire [15:0]F, Cout;
-	input [15:0]A;
-	input [15:0]B;
+	output wire[15:0] F;
+	output wire Cout;
+	input[15:0] A, B;
 	input Cin;
 	
 	assign {Cin, F} = A + B + Cin;
@@ -136,9 +136,9 @@ endmodule
 
 module C_Adder_16(F, Cout, A, B, Sub);
 
-	output wire [15:0]F, Cout;
-	input [15:0]A;
-	input [15:0]B;
+	output wire[15:0] F;
+	output wire Cout;
+	input[15:0] A, B;
 	input Sub;
 
 	wire [15:0]TB;
@@ -151,7 +151,8 @@ endmodule
 
 module Adder_32(F, Cout, OF, SF, ZF, CF, A, B, Cin);
 
-	output wire [31:0]F, Cout, OF, SF, ZF, CF;
+	output wire [31:0]F;
+	output wire Cout, OF, SF, ZF, CF;
 	input [31:0]A;
 	input [31:0]B;
 	input Cin;
